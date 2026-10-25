@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Api\V1;
 
 use App\Models\Api\V1\Airport;
-use App\Models\Flight;
+use App\Models\Api\V1\Flight;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,13 +19,13 @@ class FlightFactory extends Factory
     public function definition(): array
     {
         return [
-            'flight_number'=>'AA'.$this->fake()->numberBetween(100,999),
+            'flight_number'=>'AA'.$this->faker->numberBetween(100,999),
             'airline'=>'American Airlines',
             'from_airport_id'=>Airport::inRandomOrder()->first()?->id??1,
             'to_airport_id'=>Airport::inRandomOrder()->first()?->id??2,
             'departure_time'=>now()->addDays(1),
             'arrival_time'=>now()->addDays(1)->addHours(3),
-            'price'=>$this->fake()->randomFloat(2,100,500),
+            'price'=>$this->faker->randomFloat(2,100,500),
             'total_seats'=>100,
             'empty_seats'=>100,
         ];

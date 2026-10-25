@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Api\V1;
 
-use App\Models\Passenger;
+use App\Models\Api\V1\Passenger;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,10 +15,12 @@ class PassengerFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $model = Passenger::class;
     public function definition(): array
     {
         return [
-            //
+            'full_name' => $this->faker->name(),
+            'phone' => '+993' . $this->faker->numerify('########'),
         ];
     }
 }

@@ -1,8 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Api\V1;
 
-use App\Models\Airport;
+use App\Models\Api\V1\Airport;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,9 @@ class AirportFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->city() . ' International Airport',
+            'code' => strtoupper($this->faker->lexify('???')),
+            'city' => $this->faker->city(),
         ];
     }
 }
